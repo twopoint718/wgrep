@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# wgrep: search a web page for given regex. It uses links(1) for dumping out
+#	only the text of the page, and then grepping it
+
+function version () {
+	echo '0.1'
+}
+
+function help () {
+	echo 'Usage: wgrep [-c | -h | -v] url regex'
+}
+
+COLOR=''
+
+while getopts 'chv' opt
+do
+	case $opt in
+	c)	COLOR="--color"; shift;;
+	h)	help;		exit 0;;
+	v)	version;	exit 0;;
+	\?)	help;		exit 1;;
+	esac
+done
+
+if [ $# -gt 1 ]
+then
+	links -dump "$1" | grep $COLOR "$2" 
+else
+	help
+	exit 1
+fi

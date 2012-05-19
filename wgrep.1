@@ -1,0 +1,31 @@
+.TH man 1 "2012 May 19" "version 0.1" "USER COMMANDS"
+.SH wgrep
+Web grep \- Search the web in style
+.SH SYNOPSIS
+Web grep searches a web page for given regex. It uses links(1)
+for dumping out only the text of the page, and then grepping it
+.SH DESCRIPTION
+Web grep searches through pages using some links(1) and grep(1)
+to do its dirty work. You just point it at a site and go.
+.SH OPTIONS
+.TP
+\-c
+highlight matches in color
+.TP
+\-h
+print a help message and then exit, successfully
+.TP
+\-v
+print the version number and then exit, successfully
+.SH EXAMPLES
+.TP
+Search Google for 'Google':
+.B wgrep
+\-c
+http://www.google.com Google
+.SH SEE ALSO
+links(1), grep(1)
+.SH BUGS
+My very weak understanding of shell scripting ;)
+.SH AUTHOR
+Chris Wilson (chris@bendyworks.com, chris@sencjw.com)
